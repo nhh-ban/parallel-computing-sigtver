@@ -39,6 +39,7 @@ printTicTocLog() %>%
 # |task 2.2        |73.37   |
 # |task 2.3        |85.58   |
 
-# the second version is fastest. 
-
+# the second version is fastest. This version can run the simulation in paralell.
+# Even though we draw samples from the tweede distributin many times, the saved
+# time by drawing single samples in paralell is smaller than the simulation.
 
