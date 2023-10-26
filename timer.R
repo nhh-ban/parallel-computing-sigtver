@@ -9,7 +9,7 @@ source("scripts/hw4_v2.r")
 toc(log = T)
 
 tic("task 2.3")
-source("scripts/hw4_v2.r")
+source("scripts/hw4_v3.r")
 toc(log = T)
 
 
@@ -33,14 +33,12 @@ printTicTocLog() %>%
 
 #Output:
 
-  # |Function type   |Seconds |
-  # |:---------------|:-------|
-  # |solution script |102.34  |
-  # |task 2.2        |74.8    |
-  # |task 2.3        |63.89   |
+# |Function type   |Seconds |
+# |:---------------|:-------|
+# |solution script |83.64   |
+# |task 2.2        |73.37   |
+# |task 2.3        |85.58   |
 
-# the last version is fastes. This is because we call this function each time we
-# draw a sample from the tweede distribution. We do this operation many times,
-# and the saved time is therfore the largest.
+# the second version is fastest. 
 
 
