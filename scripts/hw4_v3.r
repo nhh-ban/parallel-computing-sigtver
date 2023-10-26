@@ -11,10 +11,10 @@ simTweedieTest <-
   } 
 
 
-# Assignment 2:
+#Assignment 2:
 library(doParallel)
 MTweedieTests <-
-  function(N,M,sig){ 
+  function(N,M,sig){
     #define numebr of cores
     Cores <- parallel::detectCores()
 
@@ -25,16 +25,20 @@ MTweedieTests <-
     registerDoParallel(cl)
     res <-
       foreach(
-        m = M,
-        .combine = 'c',
+        i = 1:M,
+        .combine = 'rbind',
         .packages = c('dplyr','tweedie'),
         .export = c('simTweedieTest')
       )%dopar%
-      replicate(m,simTweedieTest(N))
+      tibble(
+        iteration = i,
+        p_value = simTweedieTest(N)
+      )
     stopCluster(cl)
-    
-    return (sum(res < sig)/M)
-  } 
+
+    return (sum(res$p_value < sig)/M)
+  }
+
 
 
 
